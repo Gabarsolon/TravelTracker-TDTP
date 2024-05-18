@@ -22,9 +22,26 @@ public class BucketListPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"root\"]/div/nav/ul/li[3]/a")
     private WebElementFacade mapHyperLink;
 
-
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[2]/button[2]")
     private WebElementFacade deleteButtonFromModalWindow;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[1]/div/button")
+    private WebElementFacade addDestinationToBucketListButton;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[5]/label[1]/input")
+    private WebElementFacade nameTextField;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[5]/label[2]/input")
+    private WebElementFacade countryTextField;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[5]/label[3]/input")
+    private WebElementFacade cityTextField;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[5]/label[4]/input")
+    private WebElementFacade descriptionTextField;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[5]/button[1]")
+    private WebElementFacade submitDestinationButton;
 
     public boolean is_page_open() {
         return find(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div/div[1]/div/div/div[1]/h2")).isPresent();
@@ -58,14 +75,30 @@ public class BucketListPage extends PageObject {
                                     .findElement(By.tagName("div"))
                                     .findElement(By.tagName("svg"))
                                     .click();
-                            clickDeleteButtonFromModalWindow();
+                            deleteButtonFromModalWindow.click();
                         }
                 );
 
         getDriver().navigate().refresh();
     }
 
-    public void clickDeleteButtonFromModalWindow() {
-        deleteButtonFromModalWindow.click();
+    public void clickAddDestinationToBucketListButton(){
+        addDestinationToBucketListButton.click();
+    }
+
+    public void fillAddDestinationForm(
+            String name,
+            String country,
+            String city,
+            String description
+    ){
+        nameTextField.type(name);
+        countryTextField.type(country);
+        cityTextField.type(city);
+        descriptionTextField.type(description);
+    }
+
+    public void clickSubmitDestination(){
+        submitDestinationButton.click();
     }
 }

@@ -43,14 +43,55 @@ public class SeeLocationsPinsOnMapStory {
     }
 
     @Test
-    public void add_destination_with_valid_country_and_city_from_public_list__pin_should_be_displayed() throws InterruptedException {
+    public void add_destination_with_valid_country_and_city_from_public_list__pin_should_be_displayed_on_citys_centre() {
         bucketListSteps.is_on_bucket_list_page();
         bucketListSteps.drag_first_location_from_public_list_to_bucket_list();
-        bucketListSteps.can_see_added_location_from_public_list();
+        bucketListSteps.canSeeAddedDestination("Casa poporului");
         bucketListSteps.go_to_map();
 
         mapSteps.isOnMapPage();
-        mapSteps.canSeeMarkerFromPublicLocation();
+        mapSteps.canSeeMarkerAtCorrectLocation(44.4267674, 26.1025384);
     }
 
+    @Test
+    public void add_destination_with_valid_country_invalid_city__pin_shoudld_be_displayed_on_countrys_centre(){
+        bucketListSteps.is_on_bucket_list_page();
+        bucketListSteps.clickAddDestinationToBucketListButton();
+        bucketListSteps.fillAddDestinationFormFields("Destination1", "Romania", "Inexistent", "Descriere");
+        bucketListSteps.clickSubmitDestinationButton();
+        bucketListSteps.canSeeAddedDestination("Destination1");
+
+        bucketListSteps.go_to_map();
+
+        mapSteps.isOnMapPage();
+        mapSteps.canSeeMarkerAtCorrectLocation(45.943161,24.96676);
+    }
+
+    @Test
+    public void add_destination_with_invalid_country_valid_city__pin_shoudld_be_displayed_on_citys_centre(){
+        bucketListSteps.is_on_bucket_list_page();
+        bucketListSteps.clickAddDestinationToBucketListButton();
+        bucketListSteps.fillAddDestinationFormFields("Destination1", "Inexistent", "Bistrita", "Descriere");
+        bucketListSteps.clickSubmitDestinationButton();
+        bucketListSteps.canSeeAddedDestination("Destination1");
+
+        bucketListSteps.go_to_map();
+
+        mapSteps.isOnMapPage();
+        mapSteps.canSeeMarkerAtCorrectLocation(47.1392617,24.4890979);
+    }
+
+    @Test
+    public void add_destination_with_invalid_country_and_city__pin_shoudld_not_be_displayed(){
+        bucketListSteps.is_on_bucket_list_page();
+        bucketListSteps.clickAddDestinationToBucketListButton();
+        bucketListSteps.fillAddDestinationFormFields("Destination1", "Inexistent", "Inexistent", "Descriere");
+        bucketListSteps.clickSubmitDestinationButton();
+        bucketListSteps.canSeeAddedDestination("Destination1");
+
+        bucketListSteps.go_to_map();
+
+        mapSteps.isOnMapPage();
+        mapSteps.cantSeeAnyMarkers();
+    }
 }

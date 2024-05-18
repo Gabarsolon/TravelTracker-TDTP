@@ -3,8 +3,6 @@ package traveltracker.steps.serenity;
 import net.thucydides.core.annotations.Step;
 import traveltracker.pages.BucketListPage;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-
 public class BucketListSteps {
 
     BucketListPage bucketListPage;
@@ -20,8 +18,8 @@ public class BucketListSteps {
     }
 
     @Step
-    public void can_see_added_location_from_public_list(){
-        assert bucketListPage.getLastLocationFromBucketListName().equals("Casa poporului");
+    public void canSeeAddedDestination(String destinationName){
+        assert bucketListPage.getLastLocationFromBucketListName().equals(destinationName);
     }
 
     @Step
@@ -34,4 +32,23 @@ public class BucketListSteps {
         bucketListPage.clearBucketList();
     }
 
+    @Step
+    public void clickAddDestinationToBucketListButton(){
+        bucketListPage.clickAddDestinationToBucketListButton();
+    }
+
+    @Step
+    public void fillAddDestinationFormFields(
+            String name,
+            String country,
+            String city,
+            String description
+    ){
+        bucketListPage.fillAddDestinationForm(name, country, city, description);
+    }
+
+    @Step
+    public void clickSubmitDestinationButton(){
+        bucketListPage.clickSubmitDestination();
+    }
 }

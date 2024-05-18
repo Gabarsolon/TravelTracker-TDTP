@@ -12,8 +12,12 @@ public class MapSteps {
     }
 
     @Step
-    public void canSeeMarkerFromPublicLocation() throws InterruptedException {
-        assert mapPage.isMarkerFromPublicLocationPresent();
+    public void canSeeMarkerAtCorrectLocation(Double latitude, Double longitude) {
+        assert mapPage.isMarkerAtCorrectLocation(latitude, longitude);
     }
 
+    @Step
+    public void cantSeeAnyMarkers(){
+        assert mapPage.mapHasNoMarkers();
+    }
 }
