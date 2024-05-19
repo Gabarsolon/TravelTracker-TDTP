@@ -1,3 +1,5 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Search by keyword story","Searching by keyword apple should display the corresponding article","SUCCESS","2024-05-16T12:08:08.5241793+03:00[Europe/Bucharest]","0.0","2.68"
-"See locations pins on map story","Add valid location from public list pin should be displayed","SUCCESS","2024-05-16T21:39:10.4492448+03:00[Europe/Bucharest]","0.0","9.78"
+"See locations pins on map story","Add destination with valid country and city from public list pin should be displayed on citys centre","SUCCESS","2024-05-18T22:54:14.7612544+03:00[Europe/Bucharest]","0.0","11.56"
+"See locations pins on map story","Add destination with invalid country and city pin shoudld not be displayed","SUCCESS","2024-05-18T22:54:27.2731715+03:00[Europe/Bucharest]","0.0","7.25"
+"See locations pins on map story","Add destination with valid country invalid city pin shoudld be displayed on countrys centre","SUCCESS","2024-05-18T22:54:34.5775521+03:00[Europe/Bucharest]","0.0","6.36"
+"See locations pins on map story","Add destination with invalid country valid city pin shoudld be displayed on citys centre","SUCCESS","2024-05-18T22:54:40.9955541+03:00[Europe/Bucharest]","0.0","6.7"

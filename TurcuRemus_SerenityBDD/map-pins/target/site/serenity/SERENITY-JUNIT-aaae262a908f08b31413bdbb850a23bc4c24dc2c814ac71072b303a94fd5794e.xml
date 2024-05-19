@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="traveltracker.features.search.SeeLocationsPinsOnMapStory" skipped="0" tests="1" time="14.52" timestamp="2024-05-18 10:18:35"><testcase classname="traveltracker.features.search.SeeLocationsPinsOnMapStory" name="Add destination with valid country invalid city pin shoudl be displayed on countrys centre"><failure type="java.lang.AssertionError"/><system-err>null&#13;
-traveltracker.steps.serenity.MapSteps.canSeeMarkerAtCorrectLocation(MapSteps.java:16)&#13;
-traveltracker.features.search.SeeLocationsPinsOnMapStory.add_destination_with_valid_country_invalid_city__pin_shoudl_be_displayed_on_countrys_centre(SeeLocationsPinsOnMapStory.java:67)&#13;
-</system-err></testcase></testsuite>
