@@ -1,0 +1,8 @@
+traveltracker\steps\serenity\BucketListSteps.class
+traveltracker\steps\serenity\MapSteps.class
+traveltracker\features\search\SeeLocationsPinsOnMapStory.class
+traveltracker\features\search\package-info.class
+traveltracker\pages\LoginPage.class
+traveltracker\steps\serenity\LoginSteps.class
+traveltracker\pages\MapPage.class
+traveltracker\pages\BucketListPage.class
