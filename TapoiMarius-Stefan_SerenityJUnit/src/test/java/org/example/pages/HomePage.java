@@ -26,4 +26,8 @@ public class HomePage extends PageObject {
     public WebElementFacade getLoggedInUser() {
         return find(By.className("user-id"));
     }
+
+    public boolean isLoginErrorDisplayed() {
+        return find(By.className("MuiAlert-message")).isPresent();
+    }
 }

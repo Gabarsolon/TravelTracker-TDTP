@@ -26,11 +26,17 @@ public class LoginStoryDDT {
 
     public String password;
 
+    public String expectedResult;
+
     @Issue("#TravelTracker-1")
     @Test
     public void loginTestDDT() {
         user.is_the_home_page();
         user.logs_in(username, password);
-        user.should_be_logged_in(username);
+        if ("success".equals(expectedResult)) {
+            user.should_be_logged_in(username);
+        } else {
+            user.should_not_be_logged_in();
+        }
     }
 }
